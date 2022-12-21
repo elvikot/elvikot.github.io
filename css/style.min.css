@@ -365,18 +365,16 @@ table {
 .here {
   background-color: #F4F4F4;
   padding: 95px 0 75px;
-  position: relative;
-}
-.here .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 65px 1fr;
+  grid-template-areas: "items title" "items img";
+  column-gap: 50px;
 }
 .here__items {
-  width: 50%;
+  justify-self: end;
+  padding-left: 10px;
+  grid-area: items;
 }
 .here__item {
   display: flex;
@@ -405,13 +403,17 @@ table {
   margin-right: 23px;
 }
 .here__img {
-  position: relative;
-  top: 30px;
-  width: 50%;
+  width: 100%;
+  grid-area: img;
+}
+.here .title {
+  grid-area: title;
+  text-align: start;
+  margin-left: 15px;
 }
 
 .title {
-  font-size: 48px;
+  font-size: 46px;
   font-weight: 700;
   line-height: 1;
   color: #8D81AC;
@@ -599,18 +601,8 @@ table {
 }
 
 @media (max-width: 1200px) {
-  .here .container {
-    padding-right: 0;
-  }
-  .here__img {
-    position: static;
-  }
   .here .title {
     font-size: 36px;
-    text-align: start;
-  }
-  .title--tag {
-    margin-bottom: 20px;
   }
 }
 @media (max-width: 992px) {
@@ -634,33 +626,29 @@ table {
     font-size: 21px;
   }
   .here {
+    padding-top: 60px;
     background-color: #fff;
-  }
-  .here .container {
-    align-items: center;
-    flex-wrap: nowrap;
-    max-height: 1500px;
-  }
-  .here .title {
-    text-align: center;
-    order: -1;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px 1fr min-content;
+    grid-template-areas: "title" "items" "img";
   }
   .here__items {
-    width: 100%;
     margin-top: 50px;
-    padding-right: 10px;
+    grid-area: items;
+    padding: 0 10px;
+    justify-self: stretch;
+  }
+  .here .title {
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 0 10px;
   }
   .here__item {
+    margin-bottom: 50px;
     max-width: 100%;
   }
   .here__item:last-child {
-    margin-bottom: 76px;
-  }
-  .here__title {
-    margin-bottom: 0;
-  }
-  .here__img {
-    width: 100%;
+    margin-bottom: 50px;
   }
   .main-title {
     margin-top: 30px;
@@ -753,10 +741,7 @@ table {
     margin-bottom: 20px;
   }
   .here {
-    padding: 32px 0 0;
-  }
-  .here .container {
-    max-height: 1500px;
+    padding: 30px 0 0;
   }
   .here__item {
     flex-direction: column;
@@ -779,12 +764,6 @@ table {
   .here__descr {
     margin: 14px 0 38px;
     text-align: center;
-  }
-  .here .title {
-    margin: 0;
-  }
-  .here__img {
-    height: 381px;
   }
   .here__png {
     display: block;
