@@ -1,11 +1,12 @@
-In this project my parts were:
+# Additional info abour project FORKIO
 
-"Fork App" and "People Are Talking About Fork" sections. 
+In this project my parts were *Fork App* and *People Are Talking About Fork* sections. 
+
 In projects were used: 
-npm 
-html5
-scss
-css3
-js es6
+*npm 
+*html5
+*scss
+*css3
+*js es6
 
 Project was build with Gulp
